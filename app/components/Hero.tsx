@@ -24,8 +24,8 @@ export default function Hero() {
           </h1>
 
           <p className="mt-8 max-w-lg text-text-muted leading-6 sm:text-lg">
-            Turning complex product problems into clear, useful and visually
-            thoughtful experiences.
+            2+ years designing for fintech and healthcare — where confusing UX
+            has real consequences, not just annoyance.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
