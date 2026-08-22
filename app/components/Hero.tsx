@@ -54,7 +54,7 @@ export default function Hero() {
           whileHover={{ rotate: 0, y: -8, scale: 1.02 }}
           className="relative mx-auto w-full max-w-md lg:max-w-lg"
         >
-          <div className="overflow-hidden rounded-4xl bg-brand-surface shadow-[0_30px_80px_rgba(23,23,23,0.12)]">
+          <div className="relative overflow-hidden rounded-4xl bg-surface shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
             <Image
               src={profileImage}
               alt="My photo"
