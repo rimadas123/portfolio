@@ -9,8 +9,24 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Tandrima Das — Product Designer",
+  title: "Rima Das — Product Designer",
   description: "Product design portfolio — UX, UI and digital experiences.",
+  openGraph: {
+    title: "Rima Das — Product Designer",
+    description: "Product design portfolio — UX, UI and digital experiences.",
+    url: "https://rima-das.vercel.app/",
+    siteName: "Rima Das Portfolio",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/profile-1.png",
+        width: 1200,
+        height: 630,
+        alt: "Rima Das — Product Designer Portfolio",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

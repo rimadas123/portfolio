@@ -1,130 +1,93 @@
 "use client";
 
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import Link from "next/link";
-import { Menu, MoveUpRight, X } from "lucide-react";
 
-const links = [
-  ["Work", "#work"],
-  ["About", "#about"],
-  ["Experience", "#experience"],
+const navLinks = [
+  { label: "Work", href: "#work" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.65, ease: "easeOut" }}
-      className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8"
-    >
-      <nav className=" flex mx-auto max-w-6xl px-4 py-3 bg-surface/80 items-center justify-between rounded-full">
-        <Link
-          href="/"
-          className="text-sm font-semibold tracking-[-0.03em] transition-opacity hover:opacity-60"
-        >
-          Tandrima Das
-        </Link>
+    <header className="relative z-50 flex flex-col bg-surface px-6 py-4 md:px-10">
+      <nav className="mx-auto flex w-full items-center justify-between">
+        {/* Logo */}
+        <a href="/" className="text-lg font-semibold tracking-tighter">
+          RD<span className="text-foreground">.</span>
+        </a>
 
-        <div className="hidden items-center gap-1 rounded-full bg-surface p-1 sm:flex">
-          {links.map(([label, href]) => (
+        {/* Desktop Navigation */}
+        <div className="hidden items-center gap-8 md:flex">
+          {navLinks.map((nav) => (
             <a
-              key={label}
-              href={href}
-              className="rounded-full px-4 py-2 text-xs font-medium text-foreground transition hover:bg-surface-hover hover:text-brand hover:shadow-sm"
+              key={nav.href}
+              href={nav.href}
+              className="transition-opacity duration-200 hover:opacity-50"
             >
-              {label}
+              {nav.label}
             </a>
           ))}
         </div>
 
-        {/* <a
+        {/* Desktop CTA */}
+        <a
           href="#contact"
-          className="hidden rounded-full bg-brand-primary px-4 py-2.5 text-xs font-semibold text-white shadow-xs shadow-brand transition hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(99,91,255,0.32)] sm:inline-flex"
+          className="hidden items-center gap-x-2 rounded-2xl border border-brand px-3 py-2 md:flex"
         >
-          Let&apos;s talk ↗
-        </a> */}
+          Let's Talk
+          <ArrowUpRight size={16} strokeWidth={1.8} />
+        </a>
 
-        <motion.div
-          className="relative rounded-full p-0.5 overflow-hidden max-[1023px]:hidden"
-          initial="rest"
-          whileHover="hover"
-        >
-          <motion.div
-            className="absolute inset-[-200%] shadow-xl bg-[conic-gradient(from_0deg,transparent_0deg,#10b981_20deg,#8b5cf6_35deg,transparent_45deg)]"
-            variants={{
-              rest: {
-                rotate: 0,
-                opacity: 0,
-              },
-              hover: {
-                rotate: 360,
-                opacity: 1,
-                transition: {
-                  rotate: {
-                    duration: 1.8,
-                    repeat: Infinity,
-                    ease: "linear",
-                  },
-                  opacity: {
-                    duration: 0.2,
-                  },
-                },
-              },
-            }}
-          />
-
-          <button className="flex relative gap-x-1 items-center z-10 rounded-full bg-surface px-4 py-3 text-foreground text-xs">
-            Let's talk <MoveUpRight className="text-brand" size={16} />
-          </button>
-        </motion.div>
-
+        {/* Mobile Menu Button */}
         <button
           type="button"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-brand text-sm sm:hidden"
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-border-muted md:hidden"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
         >
-          {open ? (
-            <X color="#ffffff" size={16} />
+          {isOpen ? (
+            <X size={18} strokeWidth={1.8} />
           ) : (
-            <Menu color="#ffffff" size={16} />
+            <Menu size={18} strokeWidth={1.8} />
           )}
         </button>
       </nav>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -8, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -8, scale: 0.98 }}
-            className="mx-4 mt-2 rounded-3xl border border-brand/8 bg-brand p-3 shadow-xl backdrop-blur-xl sm:hidden"
-          >
-            {links.map(([label, href]) => (
-              <a
-                key={label}
-                href={href}
-                onClick={() => setOpen(false)}
-                className="block rounded-2xl px-4 py-3 text-sm text-foreground hover:bg-surface/6 hover:text-muted"
-              >
-                {label}
-              </a>
-            ))}
+      {/* Mobile Menu */}
+      <div
+        className={`absolute left-0 right-0 top-full overflow-hidden border-b border-border-subtle bg-surface transition-all duration-300 md:hidden ${
+          isOpen
+            ? "visible max-h-[400px] opacity-100"
+            : "invisible max-h-0 opacity-0"
+        }`}
+      >
+        <div className="flex flex-col gap-6 px-6 pb-8 pt-6">
+          {navLinks.map((nav) => (
             <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="mt-1 block rounded-2xl border bg-brand hover:bg-surface/65 px-4 py-3 text-sm font-semibold text-foreground"
+              key={nav.href}
+              href={nav.href}
+              onClick={() => setIsOpen(false)}
+              className="text-2xl tracking-tight"
             >
-              Let&apos;s talk ↗
+              {nav.label}
             </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+          ))}
+
+          <a
+            href="#contact"
+            onClick={() => setIsOpen(false)}
+            className="mt-2 flex w-fit items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm text-background"
+          >
+            Let's Talk
+            <ArrowUpRight size={16} strokeWidth={1.8} />
+          </a>
+        </div>
+      </div>
+    </header>
   );
 }
