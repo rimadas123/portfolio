@@ -62,17 +62,17 @@ export default function Navbar() {
       <div
         className={`absolute left-0 right-0 top-full overflow-hidden border-b border-border-subtle bg-surface transition-all duration-300 md:hidden ${
           isOpen
-            ? "visible max-h-[400px] opacity-100"
+            ? "visible max-h-100 opacity-100"
             : "invisible max-h-0 opacity-0"
         }`}
       >
-        <div className="flex flex-col gap-6 px-6 pb-8 pt-6">
+        <div className="flex flex-col gap-5 px-6 pb-8 pt-6">
           {navLinks.map((nav) => (
             <a
               key={nav.href}
               href={nav.href}
               onClick={() => setIsOpen(false)}
-              className="text-2xl tracking-tight"
+              className="text-md tracking-tight"
             >
               {nav.label}
             </a>

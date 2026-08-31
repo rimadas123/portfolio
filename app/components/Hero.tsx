@@ -8,8 +8,8 @@ import { MoveUpRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="grid h-[calc(100vh-88px)] w-full grid-cols-2 gap-8 overflow-hidden px-10">
-      <div className="flex h-full min-h-0 flex-col px-5 py-4">
+    <section className="grid w-full grid-cols-1 gap-10 px-5 pb-10 md:px-8 lg:h-[calc(100vh-88px)] lg:grid-cols-2 lg:gap-8 lg:overflow-hidden lg:px-10">
+      <div className="flex min-w-0 flex-col px-0 py-4 md:px-2 lg:h-full lg:min-h-0 lg:px-5">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,8 +36,8 @@ export default function Hero() {
             <Image src={profileImage} alt="Rima Das" height={60} width={60} />
           </div>
           {/* Profile Information */}
-          <div className="flex flex-col gap-y-3 mt-2">
-            <h1 className="text-lg font-medium leading-1 tracking-tight text-foreground">
+          <div className="flex flex-col gap-y-1.5 lg:gap-y-3 mt-2">
+            <h1 className="text-sm lg:text-lg font-medium leading-1 tracking-tight text-foreground">
               Rima Das
             </h1>
 
@@ -53,12 +53,12 @@ export default function Hero() {
         </div>
 
         {/** Heading */}
-        <div className="mt-10 flex flex-col gap-y-5">
-          <h1 className="text-[80px] leading-none font-bold">
+        <div className="mt-10 flex flex-col gap-y-5 md:mt-12 lg:mt-14">
+          <h1 className="text-[56px] sm:text-5xl md:text-6xl lg:text-[80px] leading-none font-bold">
             Your Next <br />
             <span>UX/UI</span> Designer
           </h1>
-          <p className="text-md text-text-muted">
+          <p className="max-w-2xl text-sm leading-5 text-text-muted md:text-base md:leading-6">
             I work on digital products, websites, and interfaces with a strong
             focus on usability, clarity, and real-world use. I care about making
             things that not only look good, but feel intuitive.
@@ -66,27 +66,34 @@ export default function Hero() {
         </div>
 
         {/** CTA */}
-        <div className="flex gap-x-4 mt-6">
+        <div className="flex flex-wrap gap-3 mt-6">
           <button className="text-md px-4 py-1.5 bg-brand rounded-full">
             Get in touch
           </button>
-          <button className="text-md px-4 py-1.5 bg-surface rounded-full">
+          <button className="text-md px-4 py-1.5 bg-surface border border-brand rounded-full">
             See my work
           </button>
         </div>
 
         <div className="flex gap-x-4 mt-30">
-          <button className="text-sm font-normal border border-border-muted rounded-full px-3 py-2">
-            UX/UI
+          <button className="border border-border-muted rounded-full px-3 py-2">
+            <Image src="/figma.svg" alt="figma logo" width={16} height={16} />
           </button>
-          <button className="text-sm font-normal border border-border-muted rounded-full px-3 py-2">
-            Wireframing
+          <button className="border border-border-muted rounded-full px-3 py-2">
+            <Image
+              src="/adobe-photoshop.svg"
+              alt="adobe photoshop"
+              width={16}
+              height={16}
+            />
           </button>
-          <button className="text-sm font-normal border border-border-muted rounded-full px-3 py-2">
-            Prototyping
-          </button>
-          <button className="text-sm font-normal border border-border-muted rounded-full px-3 py-2">
-            Research
+          <button className="border border-border-muted rounded-full px-3 py-2">
+            <Image
+              src="/illustrator.svg"
+              alt="adobe illustrator"
+              width={16}
+              height={16}
+            />
           </button>
         </div>
       </div>
