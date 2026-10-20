@@ -26,7 +26,7 @@ export default function Hero() {
             shadow-[0_1px_3px_rgba(0,0,0,0.08)] mb-5
           "
         >
-          <span className="h-2 w-2 rounded-full bg-brand" />
+          <span className="h-1.5 w-1.5 animate-ping [animation-duration:1.5s] opacity-90 rounded-full bg-brand" />
           <span className="text-sm leading-none tracking-tight text-text-muted">
             Available for Work
           </span>
@@ -54,14 +54,13 @@ export default function Hero() {
 
         {/** Heading */}
         <div className="mt-10 flex flex-col gap-y-5 md:mt-12 lg:mt-14">
-          <h1 className="text-[56px] sm:text-5xl md:text-6xl lg:text-[80px] leading-none font-bold">
+          <h1 className="text-[48px] sm:text-5xl md:text-6xl lg:text-[76px] leading-none font-bold">
             Your Next <br />
-            <span>UX/UI</span> Designer
+            <span className="text-text-brand">UX/UI</span> Designer
           </h1>
           <p className="max-w-2xl text-sm leading-5 text-text-muted md:text-base md:leading-6">
             I work on digital products, websites, and interfaces with a strong
-            focus on usability, clarity, and real-world use. I care about making
-            things that not only look good, but feel intuitive.
+            focus on <br /> usability, clarity, and real-world use.
           </p>
         </div>
 
@@ -75,7 +74,7 @@ export default function Hero() {
           </button>
         </div>
 
-        <div className="flex gap-x-4 mt-30">
+        <div className="flex gap-x-4 mt-20 lg:mt-30">
           <button className="border border-border-muted rounded-full px-3 py-2">
             <Image src="/figma.svg" alt="figma logo" width={16} height={16} />
           </button>

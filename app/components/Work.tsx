@@ -16,20 +16,18 @@ const projects = [
   },
   {
     id: "02",
-    title: "Project Two",
-    category: "Product Design",
-    description:
-      "Reducing friction in appointment booking with Smarter Patient Search",
-    year: "2025",
+    title: "TIQS 2.0 — Broking Platform",
+    category: "Fintech · Product Design",
+    description: "Designing a seamless trading experience for over 1M investors.",
+    year: "2024",
     image: "/Cover-2.png",
   },
   {
     id: "03",
-    title: "Project Three",
-    category: "Visual Design",
-    description:
-      "Reducing friction in appointment booking with Smarter Patient Search",
-    year: "2025",
+    title: "Blitz Design System",
+    category: "Fintech · Design System",
+    description: "A visual system for consistent fintech product experiences.",
+    year: "2024",
     image: "/Cover-3.png",
   },
 ];
@@ -122,6 +120,7 @@ export default function Work() {
                   fill
                   className="object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:blur-[2px]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  loading="eager"
                 />
 
                 {/* Blur / Overlay */}
